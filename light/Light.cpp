@@ -23,7 +23,7 @@
 #include <fstream>
 
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
-#define WHITE_LED       "/sys/class/leds/red/"
+#define WHITE_LED       "/sys/class/leds/white/"
 
 #define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
@@ -98,7 +98,7 @@ static void handleNotification(const LightState& state) {
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
-            /* Breathing */  
+            /* Breathing */
             set(WHITE_LED BREATH, 1);
             break;
         case Flash::TIMED:

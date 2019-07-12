@@ -27,8 +27,6 @@
 
 #define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
-#define DELAY_OFF       "delay_off"
-#define DELAY_ON        "delay_on"
 
 #define MAX_LED_BRIGHTNESS    255
 #define MAX_LCD_BRIGHTNESS    4095
@@ -93,18 +91,12 @@ static void handleNotification(const LightState& state) {
 
     /* Disable breathing or blinking */
     set(WHITE_LED BREATH, 0);
-    set(WHITE_LED DELAY_OFF, 0);
-    set(WHITE_LED DELAY_ON, 0);
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
+        case Flash::TIMED:
             /* Breathing */
             set(WHITE_LED BREATH, 1);
-            break;
-        case Flash::TIMED:
-            /* Blinking */
-            set(WHITE_LED DELAY_OFF, state.flashOnMs);
-            set(WHITE_LED DELAY_ON, state.flashOffMs);
             break;
         case Flash::NONE:
         default:

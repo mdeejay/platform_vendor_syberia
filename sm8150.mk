@@ -76,12 +76,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
-# NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
-
 # Power
 PRODUCT_PACKAGES += \
     power.qcom:64
@@ -116,6 +110,3 @@ PRODUCT_PACKAGES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
-
-PRODUCT_PACKAGES += \
-    vndk_package
